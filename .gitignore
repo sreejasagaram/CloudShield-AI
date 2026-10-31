@@ -1,0 +1,37 @@
+data/rag/chroma_db/
+data/custom_configs/
+# Local account database and server-side sessions
+data/cloudshield.sqlite3
+data/cloudshield.sqlite3-*
+data/sessions/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Local databases and sessions
+*.sqlite
+*.sqlite3
+*.db
+data/sessions/
+
+# IDE and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+

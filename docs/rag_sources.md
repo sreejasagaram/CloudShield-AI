@@ -1,0 +1,15 @@
+# RAG source register
+
+These authoritative references are used by the local Phase 4 retrieval-augmented generation (RAG) explanation feature. They ground explanations of existing deterministic findings; they do not decide whether a rule fires or guarantee that generated text is correct. The local knowledge collection stores short original summaries with source metadata in `data/rag/knowledge.json`. Explanations cite retrieved source IDs and the dashboard links to the registered pages.
+
+The pages below were verified as reachable official AWS documentation on 2026-10-28. Summaries are original paraphrases, not quotations.
+
+| Source title | Publisher | URL | Relevant topic | What it supports |
+|---|---|---|---|---|
+| Blocking public access to your Amazon S3 storage | Amazon Web Services (AWS) | https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html | S3 Block Public Access scope and behavior | Explains the four independent Block Public Access settings and their applicability at bucket, account, access-point, and organization levels. This supports the prototype's limitations around evaluating only bucket-level fields. |
+| Protecting data with server-side encryption | Amazon Web Services (AWS) | https://docs.aws.amazon.com/AmazonS3/latest/userguide/serv-side-encryption.html | S3 server-side encryption and defaults | Describes S3 server-side encryption and AWS defaults for new uploads. This supports explaining why the prototype's missing explicit encryption field is not proof that existing data is unencrypted. |
+| Security group rules | Amazon Web Services (AWS) | https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html | Inbound/outbound network rules | Describes how security group rules control allowed inbound and outbound traffic and the scope of source/destination rules. This informs the ingress example and its boundary around context from other network controls. |
+| Policies and permissions in AWS Identity and Access Management | Amazon Web Services (AWS) | https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html | IAM policy types and permissions | Explains that AWS policies can be identity-based, resource-based, and other types, and that policies define permissions evaluated for requests. This supports the prototype's warning that inspecting one simplified policy is not effective-permission analysis. |
+| Security best practices in AWS CloudTrail | Amazon Web Services (AWS) | https://docs.aws.amazon.com/awscloudtrail/latest/userguide/best-practices-security.html | Trail coverage and multi-Region logging | Discusses trails, management-event records, and multi-Region trails as security considerations. This informs the prototype's simplified trail signals, while the actual AWS configuration is more detailed. |
+
+Recheck links and AWS documentation before implementing or shipping a detector. The prototype's supported field values and conditions are defined in [security_rules.md](security_rules.md), not inferred from this register.

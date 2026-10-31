@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learn cloud security with CloudShield AI's private configuration examples and evidence-based scanner.">
+  <meta name="theme-color" content="#f5f8fc">
+  <title>CloudShield AI — Learn cloud security with confidence</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="CloudShield AI home">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span>CloudShield <span class="brand-accent">AI</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a id="nav-home" href="/" hidden>Home</a>
+      <a id="nav-dashboard" href="/dashboard" hidden>Dashboard</a>
+      <button id="nav-signin" class="nav-link" type="button" data-auth-view="signin">Sign in</button>
+      <a id="nav-signup" class="button button-small" href="/?view=signup" data-auth-view="signup">Create account</a>
+      <span id="account-label" class="account-label" hidden></span>
+      <button id="signout-button" class="nav-link" type="button" hidden>Sign out</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="welcome-view" class="welcome-view" aria-labelledby="welcome-heading">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> A clearer way to learn cloud security</p>
+        <h1 id="welcome-heading">Make cloud security<br><span>make sense.</span></h1>
+        <p class="hero-intro">Explore common cloud configuration risks with a simple scanner that shows exactly what it found — and why it matters.</p>
+        <div class="hero-actions">
+          <a class="button" href="/?view=signup" data-auth-view="signup">Create your free account <span aria-hidden="true">→</span></a>
+          <button class="button button-secondary" type="button" data-auth-view="signin">I already have an account</button>
+        </div>
+        <p class="prototype-note"><strong>Learning prototype:</strong> scans sample files only. It never connects to or changes a cloud account.</p>
+      </div>
+      <div class="hero-art" aria-label="Illustration of cloud configuration checks">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="cloud-card">
+          <div class="cloud-card-top"><span class="cloud-icon" aria-hidden="true">☁</span><span>CONFIGURATION CHECK</span></div>
+          <div class="check-row"><span class="check-symbol good" aria-hidden="true">✓</span><span>Encryption enabled</span><span class="check-status">SECURE</span></div>
+          <div class="check-row"><span class="check-symbol warning" aria-hidden="true">!</span><span>Public access policy</span><span class="check-status warning-text">REVIEW</span></div>
+          <div class="cloud-card-footer"><span class="pulse-dot"></span> Evidence-backed results</div>
+        </div>
+        <span class="spark spark-one" aria-hidden="true">✦</span>
+        <span class="spark spark-two" aria-hidden="true">✦</span>
+      </div>
+      <div class="feature-row">
+        <article class="feature-card"><span class="feature-icon blue" aria-hidden="true">◎</span><div><h2>Five clear security rules</h2><p>Learn from realistic, safe AWS-style examples.</p></div></article>
+        <article class="feature-card"><span class="feature-icon green" aria-hidden="true">⌁</span><div><h2>Evidence, not guesswork</h2><p>Every finding points to the exact configuration detail.</p></div></article>
+        <article class="feature-card"><span class="feature-icon violet" aria-hidden="true">✳</span><div><h2>Optional AI explanations</h2><p>Ask for source-grounded context when AI is configured.</p></div></article>
+      </div>
+    </section>
+
+    <section id="auth-view" class="auth-view" aria-labelledby="auth-heading" hidden>
+      <div class="auth-aside">
+        <p class="eyebrow">YOUR PRIVATE WORKSPACE</p>
+        <h1 id="auth-heading">A safer way to<br>learn by doing.</h1>
+        <p>Your custom examples are saved to your account. Built-in examples stay read-only and available to everyone.</p>
+        <div class="auth-promise"><span aria-hidden="true">✓</span> Findings always come from deterministic rules</div>
+        <div class="auth-promise"><span aria-hidden="true">✓</span> Your password is never sent to the AI provider</div>
+        <div class="auth-promise"><span aria-hidden="true">✓</span> No access to real cloud accounts or resources</div>
+      </div>
+      <div class="auth-card">
+        <div class="auth-switch" role="tablist" aria-label="Account options">
+          <button id="show-signin" class="auth-tab active" type="button" role="tab" aria-selected="true">Sign in</button>
+          <button id="show-signup" class="auth-tab" type="button" role="tab" aria-selected="false">Create account</button>
+        </div>
+        <form id="signin-form" class="auth-form">
+          <h2>Welcome back</h2>
+          <p class="form-intro">Sign in to pick up where you left off.</p>
+          <label for="signin-identifier">Email or username</label>
+          <input id="signin-identifier" name="identifier" type="text" autocomplete="username" required maxlength="254">
+          <label for="signin-password">Password</label>
+          <input id="signin-password" name="password" type="password" autocomplete="current-password" required maxlength="128">
+          <label class="remember-option"><input id="remember-me" name="remember_me" type="checkbox"><span>Remember me on this device</span></label>
+          <button class="button button-full" type="submit">Sign in <span aria-hidden="true">→</span></button>
+          <p id="signin-status" class="form-status" role="status" aria-live="polite"></p>
+          <p class="form-footnote">No password reset or email verification is available in this prototype.</p>
+        </form>
+        <form id="signup-form" class="auth-form" hidden>
+          <h2>Create your account</h2>
+          <p class="form-intro">It only takes a moment to get started.</p>
+          <label for="signup-email">Email address</label>
+          <input id="signup-email" name="email" type="email" autocomplete="email" required maxlength="254">
+          <label for="signup-username">Username</label>
+          <input id="signup-username" name="username" type="text" autocomplete="username" required minlength="3" maxlength="32" pattern="[A-Za-z0-9._-]{3,32}" aria-describedby="username-hint">
+          <p id="username-hint" class="field-hint">3–32 letters, numbers, dots, underscores or hyphens.</p>
+          <label for="signup-password">Password</label>
+          <input id="signup-password" name="password" type="password" autocomplete="new-password" required minlength="12" maxlength="128" aria-describedby="password-hint">
+          <p id="password-hint" class="field-hint">Use at least 12 characters. A memorable passphrase works well.</p>
+          <label for="signup-confirm">Confirm password</label>
+          <input id="signup-confirm" name="confirm_password" type="password" autocomplete="new-password" required minlength="12" maxlength="128">
+          <button class="button button-full" type="submit">Create account <span aria-hidden="true">→</span></button>
+          <p id="signup-status" class="form-status" role="status" aria-live="polite"></p>
+          <p class="form-footnote">By continuing, you understand CloudShield is a hackathon learning prototype.</p>
+        </form>
+      </div>
+    </section>
+
+    <section id="dashboard-view" class="dashboard-view" aria-labelledby="dashboard-heading" hidden>
+      <div class="dashboard-heading">
+        <div>
+          <p class="eyebrow">CLOUD CONFIGURATION LAB</p>
+          <h1 id="dashboard-heading">Your security workspace</h1>
+          <p>Choose an example, run the five deterministic checks, and review the evidence.</p>
+        </div>
+        <div class="dashboard-badge"><span class="pulse-dot"></span> Sample data only</div>
+      </div>
+      <section class="panel ai-settings-panel" aria-labelledby="ai-settings-heading">
+        <div class="section-title"><span class="step-number lavender">AI</span><div><h2 id="ai-settings-heading">AI content creation</h2><p>Generate source-grounded explanations locally with Ollama. No paid API key or external AI service is used.</p></div></div>
+        <div id="ai-settings-form">
+          <p id="ollama-model-hint" class="field-hint">Configured model: <code>qwen2.5:3b</code>. The model can be changed with <code>CLOUDSHIELD_OLLAMA_MODEL</code>.</p>
+          <p id="ai-settings-status" class="status" role="status" aria-live="polite">Checking local Ollama…</p>
+        </div>
+      </section>
+      <div class="dashboard-grid">
+        <section class="panel scan-panel" aria-labelledby="scan-heading">
+          <div class="section-title"><span class="step-number">01</span><div><h2 id="scan-heading">Choose an example</h2><p>Built-in samples are shared. Your custom examples are private.</p></div></div>
+          <form id="scan-form">
+            <label for="config-select">Configuration example</label>
+            <div class="scan-controls">
+              <select id="config-select" name="config_id" required disabled>
+                <option value="">Loading examples…</option>
+              </select>
+              <button id="scan-button" class="button" type="submit" disabled>Run scan <span aria-hidden="true">→</span></button>
+            </div>
+          </form>
+          <div class="upload-divider"><span>OR</span></div>
+          <form id="upload-form">
+            <label for="configuration-file">Upload a file to check for vulnerabilities</label>
+            <input id="configuration-file" name="configuration_file" type="file" accept=".json,application/json" required aria-describedby="upload-hint">
+            <p id="upload-hint" class="field-hint">Upload a UTF-8 JSON cloud configuration (up to 1 MB). CloudShield checks it for vulnerabilities in memory; the file is not saved.</p>
+            <details class="upload-example">
+              <summary>View the required JSON structure</summary>
+              <pre><code>{
+  "schema_version": "1.0",
+  "scenario_id": "my-example",
+  "label": "secure",
+  "resources": [
+    {
+      "resource_id": "my-bucket",
+      "resource_type": "s3_bucket",
+      "config": {
+        "default_encryption": { "SSEAlgorithm": "AES256" }
+      }
+    }
+  ]
+}</code></pre>
+            </details>
+            <button id="upload-button" class="button button-secondary" type="submit">Upload and scan file</button>
+            <p id="upload-status" class="status" role="status" aria-live="polite"></p>
+          </form>
+          <p id="scan-status" class="status" role="status" aria-live="polite">Loading your workspace…</p>
+          <div class="safe-callout"><span aria-hidden="true">i</span><p>CloudShield uses deterministic rules. It does not connect to your cloud account or make changes.</p></div>
+        </section>
+
+        <section class="panel custom-panel" aria-labelledby="custom-heading">
+          <div class="section-title"><span class="step-number lavender">02</span><div><h2 id="custom-heading">Your custom examples</h2><p>Create a private scenario using the supported JSON format.</p></div></div>
+          <form id="custom-form">
+            <label for="custom-name">Example name</label>
+            <input id="custom-name" name="name" type="text" maxlength="80" required placeholder="e.g. My storage scenario">
+            <label for="custom-json">Configuration JSON</label>
+            <textarea id="custom-json" name="configuration" rows="8" spellcheck="false" required aria-describedby="json-hint">{
+  "schema_version": "1.0",
+  "scenario_id": "my-example",
+  "label": "secure",
+  "resources": [
+    {
+      "resource_id": "my-bucket",
+      "resource_type": "s3_bucket",
+      "config": {
+        "default_encryption": { "SSEAlgorithm": "AES256" }
+      }
+    }
+  ]
+}</textarea>
+            <p id="json-hint" class="field-hint">Only the documented scenario format and five supported resource checks are accepted.</p>
+            <div class="custom-actions">
+              <button id="save-custom-button" class="button button-secondary" type="submit">Save private example</button>
+              <button id="cancel-edit-button" class="text-button" type="button" hidden>Cancel edit</button>
+            </div>
+            <p id="custom-status" class="status" role="status" aria-live="polite"></p>
+          </form>
+          <div id="custom-list" class="custom-list" aria-label="Your saved custom examples"></div>
+        </section>
+      </div>
+
+      <section id="results" class="results" aria-labelledby="results-heading" hidden>
+        <div class="results-heading">
+          <div><p class="eyebrow">SCAN RESULTS</p><h2 id="results-heading">What we found</h2></div>
+          <span id="finding-count" class="count"></span>
+        </div>
+        <div id="finding-list"></div>
+      </section>
+      <p class="dashboard-disclaimer">Findings are learning signals, not proof of exploitability or a substitute for professional security review.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>CloudShield AI <span aria-hidden="true">·</span> Hackathon prototype</span>
+    <span>Built for learning, not for auditing production infrastructure.</span>
+  </footer>
+</body>
+</html>

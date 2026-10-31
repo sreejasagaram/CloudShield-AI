@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "chunks": [
+    {
+      "source_id": "AWS-S3-PUBLIC-ACCESS",
+      "title": "Blocking public access to your Amazon S3 storage",
+      "publisher": "Amazon Web Services (AWS)",
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html",
+      "topic": "S3 Block Public Access scope and behavior",
+      "rule_ids": ["CS-S3-001"],
+      "summary": "Amazon S3 Block Public Access has four independent settings that can be applied at bucket, account, access-point, and organization levels. AWS combines applicable settings using the most restrictive effective controls; bucket-only values do not describe the complete account-level access decision."
+    },
+    {
+      "source_id": "AWS-S3-ENCRYPTION",
+      "title": "Protecting data with server-side encryption",
+      "publisher": "Amazon Web Services (AWS)",
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/serv-side-encryption.html",
+      "topic": "S3 server-side encryption and defaults",
+      "rule_ids": ["CS-S3-002"],
+      "summary": "Amazon S3 server-side encryption is applied as objects are written. AWS documents SSE-S3 as the baseline encryption for new object uploads, while bucket default-encryption settings describe the encryption configuration applied to new uploads. A bucket-level setting is not an inventory of historical object encryption."
+    },
+    {
+      "source_id": "AWS-VPC-SECURITY-GROUP-RULES",
+      "title": "Security group rules",
+      "publisher": "Amazon Web Services (AWS)",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html",
+      "topic": "Inbound and outbound network rules",
+      "rule_ids": ["CS-NET-001"],
+      "summary": "Security group rules allow inbound or outbound traffic and specify protocol, port, and source or destination. When multiple security groups are associated with a resource, their rules are aggregated, so reviewing one group's ingress alone does not establish effective reachability."
+    },
+    {
+      "source_id": "AWS-IAM-ACCESS-POLICIES",
+      "title": "Policies and permissions in AWS Identity and Access Management",
+      "publisher": "Amazon Web Services (AWS)",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html",
+      "topic": "IAM policy types and permissions",
+      "rule_ids": ["CS-IAM-001"],
+      "summary": "AWS IAM supports several policy types, including identity-based, resource-based, permissions-boundary, session, and organization policies. Policies are evaluated when a principal makes a request, so one policy document by itself is not a complete effective-permissions or exploitability assessment."
+    },
+    {
+      "source_id": "AWS-CLOUDTRAIL-SECURITY-BEST-PRACTICES",
+      "title": "Security best practices in AWS CloudTrail",
+      "publisher": "Amazon Web Services (AWS)",
+      "url": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/best-practices-security.html",
+      "topic": "CloudTrail coverage and multi-Region logging",
+      "rule_ids": ["CS-CT-001"],
+      "summary": "AWS recommends creating a CloudTrail trail for an ongoing event record and describes multi-Region trails as a way to capture activity across enabled Regions. CloudTrail's event history and trails have different coverage and retention characteristics, so a simplified trail-field check does not establish the state of all logging in an organization."
+    }
+  ]
+}

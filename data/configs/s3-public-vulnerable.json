@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "scenario_id": "s3-public-vulnerable",
+  "label": "vulnerable",
+  "resources": [
+    {
+      "resource_id": "example-bucket",
+      "resource_type": "s3_bucket",
+      "config": {
+        "default_encryption": {
+          "SSEAlgorithm": "AES256"
+        },
+        "bucket_policy": {
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": "*",
+              "Action": "s3:GetObject",
+              "Resource": "arn:aws:s3:::example-bucket/*"
+            }
+          ]
+        },
+        "public_access_block": {
+          "BlockPublicAcls": false,
+          "IgnorePublicAcls": false,
+          "BlockPublicPolicy": false,
+          "RestrictPublicBuckets": false
+        }
+      }
+    }
+  ]
+}

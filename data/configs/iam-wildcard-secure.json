@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "scenario_id": "iam-wildcard-secure",
+  "label": "secure",
+  "resources": [
+    {
+      "resource_id": "example-identity-policy",
+      "resource_type": "iam_policy",
+      "config": {
+        "policy": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": "s3:GetObject",
+              "Resource": "arn:aws:s3:::example-bucket/reports/*"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

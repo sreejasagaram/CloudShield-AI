@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "scenario_id": "network-ingress-vulnerable",
+  "label": "vulnerable",
+  "resources": [
+    {
+      "resource_id": "example-security-group",
+      "resource_type": "security_group",
+      "config": {
+        "ingress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "CidrIpv4": "0.0.0.0/0"
+          }
+        ]
+      }
+    }
+  ]
+}

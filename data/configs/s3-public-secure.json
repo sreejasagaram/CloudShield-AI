@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "scenario_id": "s3-public-secure",
+  "label": "secure",
+  "resources": [
+    {
+      "resource_id": "example-bucket",
+      "resource_type": "s3_bucket",
+      "config": {
+        "default_encryption": {
+          "SSEAlgorithm": "AES256"
+        },
+        "bucket_policy": {
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": "arn:aws:iam::111122223333:root"
+              },
+              "Action": "s3:GetObject",
+              "Resource": "arn:aws:s3:::example-bucket/*"
+            }
+          ]
+        },
+        "public_access_block": {
+          "BlockPublicAcls": true,
+          "IgnorePublicAcls": true,
+          "BlockPublicPolicy": true,
+          "RestrictPublicBuckets": true
+        }
+      }
+    }
+  ]
+}

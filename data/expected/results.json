@@ -1,0 +1,125 @@
+{
+  "schema_version": "1.0",
+  "results": [
+    {
+      "scenario_id": "s3-public-vulnerable",
+      "label": "vulnerable",
+      "expected_rule_ids": [
+        "CS-S3-001"
+      ],
+      "findings": [
+        {
+          "rule_id": "CS-S3-001",
+          "severity": "High",
+          "evidence": [
+            "bucket_policy.Statement[0].Principal: *",
+            "public_access_block.BlockPublicAcls: false",
+            "public_access_block.IgnorePublicAcls: false",
+            "public_access_block.BlockPublicPolicy: false",
+            "public_access_block.RestrictPublicBuckets: false"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "s3-public-secure",
+      "label": "secure",
+      "expected_rule_ids": [],
+      "findings": []
+    },
+    {
+      "scenario_id": "s3-encryption-vulnerable",
+      "label": "vulnerable",
+      "expected_rule_ids": [
+        "CS-S3-002"
+      ],
+      "findings": [
+        {
+          "rule_id": "CS-S3-002",
+          "severity": "Medium",
+          "evidence": [
+            "default_encryption.SSEAlgorithm: missing"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "s3-encryption-secure",
+      "label": "secure",
+      "expected_rule_ids": [],
+      "findings": []
+    },
+    {
+      "scenario_id": "network-ingress-vulnerable",
+      "label": "vulnerable",
+      "expected_rule_ids": [
+        "CS-NET-001"
+      ],
+      "findings": [
+        {
+          "rule_id": "CS-NET-001",
+          "severity": "High",
+          "evidence": [
+            "ingress[0].CidrIpv4: 0.0.0.0/0",
+            "ingress[0].FromPort/ToPort: 22"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "network-ingress-secure",
+      "label": "secure",
+      "expected_rule_ids": [],
+      "findings": []
+    },
+    {
+      "scenario_id": "iam-wildcard-vulnerable",
+      "label": "vulnerable",
+      "expected_rule_ids": [
+        "CS-IAM-001"
+      ],
+      "findings": [
+        {
+          "rule_id": "CS-IAM-001",
+          "severity": "High",
+          "evidence": [
+            "policy.Statement[0].Action: *",
+            "policy.Statement[0].Resource: *"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "iam-wildcard-secure",
+      "label": "secure",
+      "expected_rule_ids": [],
+      "findings": []
+    },
+    {
+      "scenario_id": "cloudtrail-vulnerable",
+      "label": "vulnerable",
+      "expected_rule_ids": [
+        "CS-CT-001"
+      ],
+      "findings": [
+        {
+          "rule_id": "CS-CT-001",
+          "severity": "Medium",
+          "evidence": [
+            "trail.IsLogging: false",
+            "trail.IsMultiRegionTrail: false",
+            "trail.LogFileValidationEnabled: false",
+            "trail.ManagementEventsReadWrite: missing",
+            "trail.S3BucketName: missing"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "cloudtrail-secure",
+      "label": "secure",
+      "expected_rule_ids": [],
+      "findings": []
+    }
+  ]
+}

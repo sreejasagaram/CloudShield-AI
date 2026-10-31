@@ -1,0 +1,12 @@
+Flask>=3.1,<4.0
+Flask-Limiter>=3.12,<5.0
+Flask-Session>=0.8,<1.0
+Flask-SQLAlchemy>=3.1,<4.0
+Flask-WTF>=1.2,<2.0
+SQLAlchemy>=2.0,<3.0
+argon2-cffi>=23.1,<26.0
+cachelib>=0.13,<1.0
+email-validator>=2.2,<3.0
+scikit-learn>=1.7,<2.0
+chromadb>=1.5,<2.0
+waitress>=3.0,<4.0

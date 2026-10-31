@@ -1,0 +1,15 @@
+.git
+.venv
+venv
+__pycache__
+**/__pycache__
+*.py[cod]
+tests
+data/rag/chroma_db
+data/custom_configs
+.env
+.env.*
+!.env.example
+**/secrets/**
+**/*.pem
+**/*.key

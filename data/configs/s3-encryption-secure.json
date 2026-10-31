@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "scenario_id": "s3-encryption-secure",
+  "label": "secure",
+  "resources": [
+    {
+      "resource_id": "example-bucket",
+      "resource_type": "s3_bucket",
+      "config": {
+        "bucket_policy": {
+          "Statement": []
+        },
+        "public_access_block": {
+          "BlockPublicAcls": true,
+          "IgnorePublicAcls": true,
+          "BlockPublicPolicy": true,
+          "RestrictPublicBuckets": true
+        },
+        "default_encryption": {
+          "SSEAlgorithm": "AES256"
+        }
+      }
+    }
+  ]
+}

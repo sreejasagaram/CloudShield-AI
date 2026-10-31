@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "scenario_id": "cloudtrail-vulnerable",
+  "label": "vulnerable",
+  "resources": [
+    {
+      "resource_id": "example-trail",
+      "resource_type": "cloudtrail_trail",
+      "config": {
+        "trail": {
+          "IsLogging": false,
+          "IsMultiRegionTrail": false,
+          "LogFileValidationEnabled": false
+        }
+      }
+    }
+  ]
+}

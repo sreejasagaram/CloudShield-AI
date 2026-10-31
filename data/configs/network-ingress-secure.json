@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "scenario_id": "network-ingress-secure",
+  "label": "secure",
+  "resources": [
+    {
+      "resource_id": "example-security-group",
+      "resource_type": "security_group",
+      "config": {
+        "ingress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "CidrIpv4": "203.0.113.10/32"
+          }
+        ]
+      }
+    }
+  ]
+}
